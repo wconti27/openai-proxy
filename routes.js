@@ -93,7 +93,7 @@ async function completions(req, res) {
                 console.log(e);
                 return res.status(500).send({
                     status: false,
-                    error: "something went wrong!"
+                    error: e.message || "something went wrong!"
                 });
             }
         }
@@ -124,7 +124,7 @@ async function completions(req, res) {
                 if (DEBUG) console.log(e);
                 return res.status(500).send({
                     status: false,
-                    error: "something went wrong!"
+                    error: e.message || "something went wrong!"
                 });
             }
         }
@@ -171,7 +171,7 @@ async function chatCompletions(req, res) {
             if (DEBUG) console.log(e);
             return res.status(500).send({
                 status: false,
-                error: "something went wrong!"
+                error: e.message || "something went wrong!"
             });
         }
     }
@@ -228,7 +228,7 @@ async function chatCompletions(req, res) {
                     if (DEBUG) console.error("Could not JSON parse stream message", error);
                     return res.status(500).send({
                         status: false,
-                        error: "something went wrong!"
+                        error: error.message || "something went wrong!"
                     });
                 }
             }
@@ -236,7 +236,7 @@ async function chatCompletions(req, res) {
                 if (DEBUG) console.log(e);
                 return res.status(500).send({
                     status: false,
-                    error: "something went wrong!"
+                    error: e.message || "something went wrong!"
                 });
             }
         }
@@ -267,7 +267,7 @@ async function chatCompletions(req, res) {
                 if (DEBUG) console.log(e);
                 return res.status(500).send({
                     status: false,
-                    error: "something went wrong!"
+                    error: e.message || "something went wrong!"
                 });
             }
         }
