@@ -16,5 +16,5 @@ export const WHITELISTED_IPS = [
 
 // OpenAI API Keys
 export let OPENAI_KEYS = [
-    process.env.OPENAI_KEY,
+    process.env.OPENAI_API_KEY,
 ];
