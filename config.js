@@ -1,6 +1,6 @@
 // Server configuration
 export const SERVER_PORT = 3000; // Server port
-export const DEBUG = false; // Debug mode
+export const DEBUG = true; // Debug mode
 
 // Prompt Moderation before sending to OpenAI
 export const MODERATION = true; // Moderation mode
