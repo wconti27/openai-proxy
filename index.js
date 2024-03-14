@@ -1,8 +1,9 @@
 import express, { json, urlencoded } from 'express';
 import { completions, chatCompletions } from './routes.js';
 import { corsMiddleware, rateLimitMiddleware } from './middlewares.js';
-import { DEBUG, SERVER_PORT } from './config.js';
+import { DEBUG, SERVER_PORT, OPENAI_KEYS } from './config.js';
 
+console.log(OPENAI_KEYS)
 let app = express();
 
 process.on("uncaughtException", function (err) {
