@@ -5,7 +5,7 @@ import { DEBUG, MODERATION } from "./config.js";
 
 async function completions(req, res) {
     let orgId = generateId();
-    let key = getOpenAIKey();
+    let key = req.headers.authorization.split(' ')[1];
 
     if (!req.body.prompt) {
         res.set("Content-Type", "application/json");
@@ -29,8 +29,7 @@ async function completions(req, res) {
                 return res.status(400).send({
                     status: false,
                     error: "Your prompt contains content that is not allowed",
-                    reason: response.data.results[0].reason,
-                    contact: "https://discord.pawan.krd"
+                    reason: response.data.results[0].reason
                 });
             }
         }
@@ -133,7 +132,7 @@ async function completions(req, res) {
 
 async function chatCompletions(req, res) {
     let orgId = generateId();
-    let key = getOpenAIKey();
+    let key = req.headers.authorization.split(' ')[1];
 
     if (MODERATION) {
         try {
